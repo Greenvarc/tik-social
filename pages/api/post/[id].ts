@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
         .patch(id)
         .setIfMissing({ comments: [] })
         .insert('after', 'comments[-1]', [
-            {
+            {  
             comment,
             _key: uuid(),
             postedBy: {_type:'postedBy',_ref:userId},
